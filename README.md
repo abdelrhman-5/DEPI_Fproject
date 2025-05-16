@@ -1,37 +1,69 @@
-# DEPI_Fproject
+# Customer Churn Prediction
 
 ## Project Overview
-This project predicts customer churn using various machine learning models and tracks experiments with MLflow. The workflow includes data preprocessing, model training, evaluation, and experiment tracking.
 
-## How to Run
-1. **Install dependencies** (if not already):
-   ```bash
-   pip install -r requirements.txt
-   ```
+A machine learning project to predict customer churn using demographic and behavioral data. The project includes data analysis, model development, and a Streamlit web application for interactive predictions.
 
-2. **Start the MLflow Tracking Server** (if not already running):
-   ```bash
-   mlflow server --host 0.0.0.0 --port 5001
-   ```
+## Models
 
-3. **Run the churn MLflow script:**
-   ```bash
-   python3 app/churn_mlflow.py
-   ```
+Three classification models were implemented:
 
-## Viewing Results
-- Open your browser and go to: [http://0.0.0.0:5001](http://0.0.0.0:5001)
-- Select the `churn` experiment to view all runs, metrics, artifacts, and registered models.
+1. **Logistic Regression**
+2. **Decision Tree** (Best performer with 98.8% accuracy)
+3. **Naive Bayes**
 
-## Main Script
-- `app/churn_mlflow.py`: Loads and preprocesses data, trains multiple models, logs results and artifacts to MLflow, and compares model performance.
 
-## Data
-- Place your cleaned data CSV at: `app/cleaned_customer_data.csv`
+## Key Features
 
-## Requirements
-- Python 3.8+
-- See `requirements.txt` for all dependencies.
+### Streamlit Web Application
 
-## Example Output
-After running the script, you will see model comparison metrics in the terminal and detailed experiment tracking in the MLflow UI.
+The project includes a Streamlit app with:
+
+- **Prediction Interface**: Input customer data and get churn predictions
+- **Data Insights Dashboard**: Explore patterns in customer data
+- **Visualization Tools**: Histograms, pie charts, and correlation analysis
+
+
+### Model Analysis
+
+- Feature importance analysis identifies key churn factors
+- Confusion matrices and performance metrics for each model
+- Comparison of model performance
+
+
+## Installation
+
+```shellscript
+# Clone the repository
+git clone https://github.com/yourusername/customer-churn-prediction.git
+cd customer-churn-prediction
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+## Usage
+
+### Running the Streamlit App
+
+```shellscript
+streamlit run app.py
+```
+
+The application will be available at [http://localhost:8501](http://localhost:8501)
+
+## Project Structure
+
+```plaintext
+customer-churn-prediction/
+├── app.py                    # Streamlit application
+├── dt_model.pkl              # Trained Decision Tree model
+├── cleaned_customer_data.csv # Cleaned dataset for insights
+└── README.md                 # Project documentation
+```
+
+## Future Work
+
+- Model monitoring and retraining
+- Additional feature engineering
+- Deployment to production environment
